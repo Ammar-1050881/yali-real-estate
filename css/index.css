@@ -199,3 +199,47 @@
     background: #d4af37;
     color: #020617;
 }
+
+/* ============================================================
+   TOP BAR AUTHENTICATION & ACTION BUTTONS
+   ============================================================ */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Perfect spacing between items */
+}
+
+/* Elegant text link for Login */
+.login-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    color: #d4af37; /* Royal gold */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4); /* Subtle neon glow */
+}
+
+/* Premium Outlined Button for Sign Up */
+.btn-outline {
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #d4af37;
+    color: #030712; /* Deep dark background color for contrast */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
