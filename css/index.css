@@ -1,0 +1,201 @@
+/* ============================================================
+   INDEX PAGE SPECIFIC STYLES - REFINED
+   ============================================================ */
+
+/* 1. HERO SECTION & BACKGROUND OVERLAY */
+.hero-container {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Made the dark overlay much stronger (0.85) so text pops */
+    background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)), 
+                url('../assets/images/futuristic-home.jpg') center/cover;
+    padding: 0 5%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #ffffff; /* Forced white */
+    text-shadow: 0px 4px 20px rgba(0,0,0,0.5); /* Added shadow for readability */
+}
+
+.hero-content h1 span {
+    color: #d4af37; /* Royal Gold */
+}
+
+.hero-content p {
+    color: #cbd5e1; /* Light grey for the subtitle */
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* 2. SEARCH PORTAL */
+.search-portal {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Slight gold border */
+    padding: 15px 30px;
+    border-radius: 100px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.search-item {
+    flex: 1;
+    text-align: left;
+    min-width: 150px;
+}
+
+.search-item label {
+    display: block;
+    font-size: 0.70rem;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.search-item input, .search-item select {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+
+/* 3. TRENDING PROPERTIES GRID */
+.trending-section {
+    padding: 80px 8%;
+    background: #020617; /* Very dark blue/black background */
+}
+
+.section-header {
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.section-header h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+.section-header h2 span {
+    color: #d4af37;
+}
+
+.section-header p {
+    color: #94a3b8;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* 4. PROPERTY CARDS - FIXING THE TEXT COLORS */
+.property-card {
+    background: #0f172a; /* Solid dark slate to cover backgrounds */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.img-container {
+    height: 240px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.property-card:hover .img-container img {
+    transform: scale(1.08);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(2, 6, 23, 0.9);
+    border: 1px solid #d4af37;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    z-index: 5;
+}
+
+.card-details {
+    padding: 25px;
+    text-align: left;
+}
+
+/* Forcing text colors to be readable */
+.card-details h3 {
+    color: #ffffff; 
+    font-size: 1.3rem;
+    margin: 8px 0;
+}
+
+.card-details .tagline {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.card-details p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: #d4af37;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* 5. FIXING THE BUTTONS */
+.btn-outline-sm {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #d4af37;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* Makes button span the card width */
+}
+
+.btn-outline-sm:hover {
+    background: #d4af37;
+    color: #020617;
+}

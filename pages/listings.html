@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Luxury Properties | Yali.com</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/listings.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23d4af37' font-family='sans-serif' font-weight='bold'>Y</text></svg>">
+</head>
+<body class="listings-body">
+
+    <header class="navbar">
+        <div class="logo">Yali<span>.com</span></div>
+        <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="about.html">About</a></li>
+</ul>
+    </header>
+
+    <div class="listings-layout">
+        <aside class="filter-sidebar">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button class="reset-btn">Reset</button>
+            </div>
+            
+            <div class="filter-group">
+                <label>Location</label>
+                <select>
+                    <option>All Cities</option>
+                    <option>Lahore</option>
+                    <option>Islamabad</option>
+                    <option>Karachi</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Price Range (PKR)</label>
+                <input type="range" min="5" max="50" step="1">
+                <div class="range-labels"><span>5 Crore</span> <span>50 Crore</span></div>
+            </div>
+
+            <div class="filter-group">
+                <label>Property Type</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Modern Villa</label>
+                    <label><input type="checkbox"> Spanish Classic</label>
+                    <label><input type="checkbox"> Penthouse</label>
+                </div>
+            </div>
+
+            <button class="btn-primary full-width">Apply Filters</button>
+        </aside>
+
+        <main class="listings-content">
+            <div class="results-header">
+                <h2>6 Premium <span>Found</span></h2>
+                <div class="sort-dropdown">
+                    Sort by: <select><option>Price: High to Low</option></select>
+                </div>
+            </div>
+
+            <div class="listings-grid">
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/a.webp" alt="Modern Minimalist">
+                        <span class="tag">DHA Phase 6</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 12.5 Crore</span>
+                        <h4>Modern Minimalist Estate</h4>
+                        <p>1 Kanal • Designer Built • Brand New</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/b.jpg" alt="European Estate">
+                        <span class="tag">Bahria Town</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 8.2 Crore</span>
+                        <h4>Classic European Villa</h4>
+                        <p>10 Marla • Fully Furnished • Corner</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/c.jpg" alt="Industrial Modern">
+                        <span class="tag">Gulberg, Lahore</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 18.0 Crore</span>
+                        <h4>Industrial Stack Mansion</h4>
+                        <p>1 Kanal • Smart Home • Basement</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/d.jpeg" alt="Sleek Contemporary">
+                        <span class="tag">DHA Phase 8</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 22.5 Crore</span>
+                        <h4>The Obsidian Villa</h4>
+                        <p>1 Kanal • Infinity Pool • Cinema</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/e.jpeg" alt="Luxury Palace">
+                        <span class="tag">E-7, Islamabad</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 45.0 Crore</span>
+                        <h4>Royal Terraced Palace</h4>
+                        <p>2 Kanal • Diplomatic Enclave • 6 Bed</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="card-img">
+                        <img src="../assets/images/f.webp" alt="Spanish Classic">
+                        <span class="tag">Bahria Orchard</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="price">PKR 7.5 Crore</span>
+                        <h4>Spanish Arched Villa</h4>
+                        <p>10 Marla • Lush Gardens • Arched Windows</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+<footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>Yali<span>.com</span></h2>
+                <p>Engineering the future of luxury real estate and exclusive property management across Pakistan and beyond.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="listings.html">Premium Properties</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">List Your Property</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Yali.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">&#8593;</a>
+
+    <script>
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>

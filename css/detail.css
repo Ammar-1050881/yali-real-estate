@@ -1,0 +1,241 @@
+/* ==========================================================================
+   YALI.COM - UPGRADED PROPERTY DETAIL STYLES
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --dark-bg: #070a13;
+    --card-bg: #111724;
+    --text-muted: #8c93a1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.luxury-theme { 
+    background-color: var(--dark-bg); 
+    color: #ffffff; 
+    font-family: 'Inter', sans-serif; 
+}
+
+/* --- SPACED NAVBAR --- */
+.navbar {
+    background: rgba(7, 10, 19, 0.95);
+    padding: 30px 0; 
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    width: 100%; /* Ensures the navbar spans the entire screen */
+}
+
+.nav-container {
+    width: 100%; /* THIS FIXES IT: Forces the container to stretch */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between; /* Pushes logo to the far left, links to the right */
+    align-items: center;
+}
+
+.logo { font-size: 1.8rem; font-weight: 800; color: #fff; }
+.logo span { color: var(--gold); }
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+
+/* --- MAIN CONTAINER --- */
+.container { 
+    max-width: 1400px; 
+    margin: 40px auto 100px auto; /* Pushes the pictures a little bit lower */
+    padding: 0 40px; 
+}
+
+.master-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr; /* Gallery takes more space, right panel fills the empty void */
+    gap: 50px;
+    align-items: start;
+}
+
+/* --- GALLERY COLUMN --- */
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-photo {
+    width: 100%;
+    height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.main-photo:hover img { transform: scale(1.02); }
+
+.thumbnail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 250px;
+}
+
+.thumb {
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s;
+}
+.thumb:hover img { transform: scale(1.05); }
+
+/* --- THE PLUS ICON OVERLAY --- */
+.view-more-wrapper .plus-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: background 0.3s;
+}
+
+.view-more-wrapper:hover .plus-overlay {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(212, 175, 55, 0.2);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.plus-overlay span {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+/* --- AMAZING RIGHT PANEL --- */
+.info-column { position: relative; }
+
+.sticky-vitals-card {
+    position: sticky;
+    top: 120px; /* Stays on screen as you scroll */
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.prop-title { font-size: 2.4rem; line-height: 1.2; margin-bottom: 5px; }
+.prop-location { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px; }
+.prop-price { color: var(--gold); font-size: 2.2rem; margin-bottom: 30px; }
+
+.specs-grid { 
+    display: flex; 
+    gap: 30px; 
+    padding: 25px 0; 
+    border-top: 1px solid rgba(255,255,255,0.05); 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+    margin-bottom: 30px;
+}
+
+.spec strong { display: block; font-size: 1.6rem; color: #fff; }
+.spec span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;}
+
+.prop-description h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--gold); }
+.prop-description p { color: #aaa; line-height: 1.6; margin-bottom: 30px; font-size: 0.95rem; }
+
+/* --- FORM & BUTTONS --- */
+.tour-form h3 { margin-bottom: 15px; font-size: 1.2rem; }
+.tour-form input {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.gold-btn {
+    width: 100%;
+    background: var(--gold);
+    color: #000;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gold-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* --- LIGHTBOX MODAL --- */
+.modal {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.98); align-items: center; justify-content: center;
+}
+.modal-content { position: relative; width: 90%; max-width: 1200px; }
+.slide { display: none; text-align: center; }
+.slide img { width: 100%; max-height: 85vh; object-fit: contain; border-radius: 12px; }
+.close-modal { position: absolute; top: -40px; right: 0; font-size: 40px; color: #fff; cursor: pointer; }
+.close-modal:hover { color: var(--gold); }
+.prev, .next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 50px; color: var(--gold); cursor: pointer; padding: 20px; transition: 0.3s;
+}
+.prev:hover, .next:hover { color: #fff; }
+.prev { left: -80px; }
+.next { right: -80px; }
+.caption { margin-top: 15px; font-size: 1.2rem; color: var(--gold); letter-spacing: 1px; }

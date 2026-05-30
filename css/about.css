@@ -1,0 +1,183 @@
+/* ==========================================================================
+   YALI.COM - ABOUT PAGE STYLES
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --dark-bg: #070a13;
+    --card-bg: #111724;
+    --text-muted: #8c93a1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.luxury-theme { 
+    background-color: var(--dark-bg); 
+    color: #ffffff; 
+    font-family: 'Inter', sans-serif; 
+}
+
+/* --- NAVBAR (Same fix as detail page) --- */
+.navbar {
+    background: rgba(7, 10, 19, 0.95);
+    padding: 30px 0; 
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo { font-size: 1.8rem; font-weight: 800; color: #fff; }
+.logo span { color: var(--gold); }
+
+.nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+.btn-nav {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--gold);
+    padding: 8px 20px;
+    border-radius: 6px;
+    color: var(--gold) !important;
+}
+
+.btn-nav:hover { background: var(--gold); color: #000 !important; }
+
+/* --- HERO SECTION --- */
+.about-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    background: url('../assets/images/b.jpg') center/cover no-repeat; /* Uses your nice estate image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 90px; /* Offset for fixed navbar */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(7,10,19,0.8), rgba(7,10,19,1));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.gold-badge {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+.hero-content p { font-size: 1.2rem; color: #ccc; line-height: 1.6; }
+
+/* --- MAIN CONTAINER --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+/* --- MISSION & STATS --- */
+.mission-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.mission-text h2 { font-size: 2.5rem; margin-bottom: 15px; }
+.gold-line { width: 60px; height: 3px; background: var(--gold); margin-bottom: 25px; }
+.mission-text p { color: #aaa; font-size: 1.1rem; line-height: 1.8; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
+.stat-card h3 { color: var(--gold); font-size: 2.5rem; margin-bottom: 10px; }
+.stat-card p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Make the 3rd stat span full width of its row */
+.stat-card:nth-child(3) { grid-column: span 2; }
+
+/* --- TEAM SECTION --- */
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+.member-photo {
+    width: 100%;
+    height: 350px;
+    background: #000;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Keeps faces in frame */
+    filter: grayscale(20%);
+    transition: 0.5s;
+}
+
+.team-card:hover .member-photo img { filter: grayscale(0%); }
+
+.member-info { padding: 30px; text-align: center; }
+.member-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
+.role { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 600; }
+.member-info p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }

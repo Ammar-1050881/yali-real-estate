@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Yali.com | Premium Services</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23d4af37' font-family='sans-serif' font-weight='bold'>Y</text></svg>">
+</head>
+<body class="auth-body-neon">
+
+    <div id="futuristic-bg"></div>
+    <div id="ghost-text" class="neon-ghost">YALI</div>
+
+    <div id="animation-stage">
+        <h1 id="intro-logo">Yali<span>.com</span></h1>
+        <div id="lottie-character"></div>
+        <div id="explosion-box"></div>
+    </div>
+
+    <div class="auth-container hidden-content" id="auth-content">
+        <form class="auth-form glass-form">
+            <div class="logo">Yali<span>.com</span></div>
+            <h2>Unlock Your Property</h2>
+            <p>Complete your profile to access premium services.</p>
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="john@yali.com" required>
+            </div>
+            <div class="input-group">
+                <label>Create Password</label>
+                <input type="password" required>
+            </div>
+            <button type="submit" class="btn-primary btn-glow">Create Account</button>
+            <p class="auth-footer" style="color: white; margin-top: 20px;">
+                Already have an account? <a href="login.html" style="color: #3b82f6;">Login here</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const characterContainer = document.getElementById('lottie-character');
+            const authContent = document.getElementById('auth-content');
+            const stage = document.getElementById('explosion-box');
+            const introLogo = document.getElementById('intro-logo');
+            const bg = document.getElementById('futuristic-bg');
+            const ghost = document.getElementById('ghost-text');
+
+            const animation = lottie.loadAnimation({
+                container: characterContainer, 
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../assets/animations/567f8a58-4fe3-11ef-9d3e-3b3890f9bf77.json' 
+            });
+
+            characterContainer.classList.add('lottie-walk-active');
+
+            setTimeout(() => {
+                animation.pause();
+                for (let i = 0; i < 80; i++) { createParticle(stage); }
+
+                characterContainer.style.opacity = "0";
+                introLogo.style.opacity = "0";
+                introLogo.style.transform = "translate(-50%, -50%) scale(1.5)";
+                introLogo.style.transition = "all 0.5s ease-in";
+                
+                // Reveal Beach & Ghost Neon
+                bg.classList.add('bg-blur');
+                ghost.style.opacity = "1"; // Ghost text fades in beautifully
+
+                setTimeout(() => {
+                    introLogo.style.display = "none";
+                    characterContainer.style.display = "none"; 
+
+                    // Reveal form
+                    authContent.style.display = "flex"; 
+                    authContent.classList.remove('hidden-content');
+                    authContent.classList.add('reveal-auth');
+                }, 500);
+            }, 3000); 
+        });
+
+        function createParticle(stage) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = '50%'; p.style.top = '60%'; 
+            p.style.backgroundColor = Math.random() > 0.5 ? '#3b82f6' : '#ffffff';
+            const destX = (Math.random() - 0.5) * 1000;
+            const destY = (Math.random() - 0.5) * 1000;
+            p.animate([{ transform: 'translate(0, 0) scale(1)', opacity: 1 }, { transform: `translate(${destX}px, ${destY}px) scale(0)`, opacity: 0 }], { duration: 1500, easing: 'ease-out' });
+            stage.appendChild(p);
+            setTimeout(() => p.remove(), 1500);
+        }
+    </script>
+</body>
+</html>

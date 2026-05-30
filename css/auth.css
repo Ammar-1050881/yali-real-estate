@@ -1,0 +1,114 @@
+/* ============================================================
+   YALI.COM - AUTHENTICATION STYLES (LOGIN & SIGNUP)
+   ============================================================ */
+
+/* 1. THE LOGO FIX */
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: -1px;
+    /* This makes "Yali" white so it's visible against the dark card */
+    color: #ffffff !important; 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.logo span {
+    /* This keeps the ".com" blue to match your "Create Account" button */
+    color: #3b82f6; 
+}
+
+/* 2. AUTH CARD & BACKGROUND */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #030712; /* Deep dark background */
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card {
+    background: rgba(15, 23, 42, 0.8); /* Translucent slate */
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* 3. THE GHOST WATERMARK */
+/* Add a div with class "auth-watermark" in your HTML to use this */
+.auth-watermark {
+    position: absolute;
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02); /* Extremely faint */
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 4. FORM ELEMENTS */
+.auth-card h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.auth-card p {
+    color: #94a3b8;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transition: 0.3s;
+}
+
+.btn-auth:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,1028 @@
+/* ============================================================
+   1. BRANDING & ENGINE (Variables)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --primary: #0f172a;    /* Deep Midnight */
+    --accent: #3b82f6;     /* Electric Blue */
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    --text-dark: #1e293b;
+    --text-slate: #64748b;
+    --bg-main: #f8fafc;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.8);
+    
+    /* Animation Tokens */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-3d: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   2. CORE ARCHITECTURE (Reset & Global)
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+/* ============================================================
+   3. NAVIGATION (Glassmorphism UI)
+   ============================================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-soft);
+}
+
+.logo { font-size: 26px; color: var(--primary); }
+.logo span { color: var(--accent); }
+
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+.nav-links a:hover { color: var(--accent); }
+
+.btn-nav {
+    background: var(--accent);
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 12px;
+}
+
+/* ============================================================
+   4. HOME PAGE (Hero & Search)
+   ============================================================ */
+.hero {
+    height: 75vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                url('../assets/images/hero-bg.jpg') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+
+.search-container {
+    background: white;
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: var(--shadow-3d);
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    padding: 10px 25px;
+    outline: none;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+.btn-search {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ============================================================
+   5. AUTH PAGES (Login/Signup)
+   ============================================================ */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f1f5f9;
+}
+
+.auth-form {
+    background: white;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-3d);
+    width: 100%;
+    max-width: 450px;
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 15px var(--accent-glow); }
+
+/* ============================================================
+   6. LISTINGS & PROPERTY CARDS (3D Hover Effect)
+   ============================================================ */
+.listings-container { display: flex; padding: 50px 10%; gap: 40px; }
+
+.filters {
+    width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    height: fit-content;
+    box-shadow: var(--shadow-soft);
+}
+
+.property-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.property-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    perspective: 1000px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.property-card:hover {
+    transform: translateY(-15px) rotateX(4deg) rotateY(2deg);
+    box-shadow: var(--shadow-3d);
+}
+
+.card-image { height: 220px; background: #e2e8f0; }
+
+/* ============================================================
+   7. ABOUT PAGE & TEAM (Circular Professional Layout)
+   ============================================================ */
+.team-section { padding: 80px 10%; text-align: center; }
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.team-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-3d);
+}
+
+.member-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 25px;
+    border: 6px solid var(--white);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ============================================================
+   8. DASHBOARD (Sidebar & Stats)
+   ============================================================ */
+.dashboard-wrapper { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: 280px;
+    background: var(--primary);
+    color: white;
+}
+
+.side-nav a {
+    display: block;
+    padding: 18px 35px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.side-nav a.active, .side-nav a:hover {
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border-left: 4px solid var(--accent);
+}
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+
+
+
+/* --- HERO ENHANCEMENTS --- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 85vh; /* Taller hero for more impact */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+/* Entrance Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glow-text span {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* --- THE 3D SEARCH BOX --- */
+.search-box-3d {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+.search-box-3d:hover {
+    transform: perspective(1000px) rotateX(2deg);
+    border-color: var(--accent);
+}
+
+.search-input-wrapper {
+    background: white;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.search-input-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.btn-glow {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+
+/* --- TRUST BAR --- */
+.features-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 10%;
+    background: white;
+    margin-top: -50px; /* Overlaps hero slightly for 3D depth */
+    position: relative;
+    z-index: 10;
+    border-radius: 20px;
+    width: 80%;
+    margin-inline: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-item { text-align: center; }
+.feature-item .icon { font-size: 2rem; margin-bottom: 10px; }
+.feature-item p { font-weight: 600; color: var(--primary); }
+
+/* --- ENHANCED CARDS --- */
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+.price-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    z-index: 5;
+}
+
+.card-info { padding: 25px; }
+.location { color: var(--text-slate); font-size: 0.9rem; margin: 5px 0 15px; }
+.card-meta { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+    font-size: 0.85rem; 
+    color: var(--text-dark);
+}
+
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h2 { font-size: 2.5rem; }
+.section-header p { color: var(--text-slate); }
+
+
+/* ============================================================
+   9. ADVANCED NEON AUTH DESIGN
+   ============================================================ */
+
+/* Neon Background Architecture */
+.auth-body-neon {
+    background-color: #030a1c; /* Very deep dark navy */
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(139, 92, 246, 0.2) 0px, transparent 50%);
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Glassmorphism Form (Appearing after explosion) */
+.glass-form {
+    background: rgba(15, 23, 42, 0.5) !important;
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 100px rgba(59, 130, 246, 0.15) !important;
+}
+
+.glass-form h2, .glass-form label, .glass-form p { color: white !important; }
+.glass-form input { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1); }
+
+/* Animation Controls */
+#animation-container {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    z-index: 2000;
+    /* Placeholder visualization before real Lottie is added */
+    border: 2px dashed rgba(59, 130, 246, 0.5); 
+    color: var(--accent); display: flex; align-items: center; justify-content: center;
+}
+#animation-container::after { content: "ANIMATION PLACEHOLDER: Professional walks to middle, Briefcase explodes..."; text-align: center; padding: 20px;}
+
+.hidden-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* The 'Entrance' animation after explosion */
+.reveal-auth {
+    animation: authEntrance 1s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes authEntrance {
+    0% {
+        opacity: 0;
+        visibility: visible;
+        transform: scale(0.8);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+}
+
+
+#animation-stage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0; left: 0;
+    z-index: 9999;
+    pointer-events: none; /* Allows clicking through to the form later */
+}
+
+.character-wrapper {
+    position: absolute;
+    bottom: 20%;
+    left: -150px; /* Start off-screen */
+    font-size: 80px;
+    transition: transform 0.1s linear;
+}
+
+/* Walking Animation */
+.walking {
+    animation: 
+        moveForward 3s forwards linear,
+        bobbing 0.5s infinite ease-in-out;
+}
+
+@keyframes moveForward {
+    to { left: 50%; transform: translateX(-50%); }
+}
+
+@keyframes bobbing {
+    0%, 100% { bottom: 20%; }
+    50% { bottom: 22%; }
+}
+
+/* The Explosion Effect */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* Animation Stage Elements */
+.businessman-avatar {
+    position: relative;
+    width: 60px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.suit-body {
+    width: 40px;
+    height: 60px;
+    background: #1e293b; /* Navy Suit Color */
+    border-radius: 5px;
+    position: relative;
+}
+
+.briefcase {
+    position: absolute;
+    right: -20px;
+    bottom: 10px;
+    font-size: 30px;
+}
+
+/* Walking Animation */
+.walking {
+    animation: moveIn 3s forwards linear, bob 0.5s infinite alternate;
+}
+
+@keyframes moveIn {
+    from { left: -100px; }
+    to { left: 50%; transform: translateX(-50%); }
+}
+
+@keyframes bob {
+    from { margin-top: 0; }
+    to { margin-top: -10px; }
+}
+
+/* Explosion Particles */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+
+
+/* --- PNG CHARACTER STYLES --- */
+.businessman-img {
+    width: 100%;
+    height: auto;
+    /* If your PNG is transparent, we don't need 'mix-blend-mode: screen' */
+    /* But we keep the glow to make him look like he's in a neon world */
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+    display: block;
+}
+
+.businessman-avatar {
+    position: relative;
+    width: 180px; /* Adjust this based on how 'wide' your PNG is */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.briefcase {
+    position: absolute;
+    right: 20px; /* Adjust this so it lines up with his hand */
+    bottom: 40px; 
+    font-size: 40px;
+    z-index: 10;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+
+
+/* --- THE NEW PHYSICS STYLES --- */
+
+.character-wrapper {
+    position: absolute;
+    bottom: 15%;
+    left: -200px; /* Starts off screen */
+    width: 180px;
+    transition: left 2.5s linear; /* Linear makes the walking speed steady */
+    z-index: 50;
+}
+
+.businessman-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+    display: block;
+}
+
+/* The Fake Walk (Bouncing and Tilting) */
+.waddling {
+    animation: footSteps 0.4s infinite;
+}
+
+@keyframes footSteps {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(3deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+/* The Briefcase Starting Position (In his hand) */
+.briefcase {
+    position: absolute;
+    right: 20px;
+    bottom: 50px; 
+    font-size: 40px;
+    z-index: 60;
+    transition: all 0.5s cubic-bezier(0.5, 0, 0.75, 0); /* Gravity effect */
+}
+
+/* The Bag Drop */
+.drop-bag {
+    bottom: -20px !important; /* Moves it down to the floor */
+    right: -10px !important; /* Tosses it slightly forward */
+    transform: rotate(70deg); /* Bag falls over */
+}
+
+/* --- LOTTIE ANIMATION STAGE --- */
+#lottie-character {
+    position: absolute;
+    bottom: 10%;
+    left: -400px; /* Start off-screen */
+    width: 450px;  /* Size of the professional */
+    height: 450px;
+    z-index: 100;
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+}
+
+/* The CSS movement for the container */
+.lottie-walk-active {
+    animation: walkToCenter 3s forwards linear;
+}
+
+@keyframes walkToCenter {
+    to { left: 50%; transform: translateX(-50%); }
+}
+
+/* Particle appearance */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* --- CINEMATIC BACKGROUND --- */
+#futuristic-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    /* We add a dark overlay so text remains readable */
+    background: linear-gradient(rgba(3, 10, 28, 0.4), rgba(3, 10, 28, 0.8)), 
+                url('../assets/images/futuristic-home.jpg') center/cover no-repeat;
+    z-index: 0;
+    transition: all 1s ease-in-out;
+}
+
+/* This triggers when the explosion happens */
+.bg-blur {
+    filter: blur(15px) brightness(0.4);
+    transform: scale(1.05); /* Slight zoom for dramatic effect */
+}
+
+/* Ensure stage and form sit above the background */
+#animation-stage, .auth-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* --- ANIMATED YALI INTRO TEXT --- */
+#intro-logo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: white;
+    z-index: 50; /* Sits behind the professional walking */
+    opacity: 0;
+    animation: cinematicText 3s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#intro-logo span {
+    color: var(--accent);
+}
+
+/* The tracking-in and glowing animation */
+@keyframes cinematicText {
+    0% { 
+        opacity: 0; 
+        letter-spacing: 30px; 
+        transform: translate(-50%, -50%) scale(0.8);
+        text-shadow: 0 0 0 transparent;
+    }
+    30% { 
+        opacity: 1; 
+        letter-spacing: 0px; 
+        transform: translate(-50%, -50%) scale(1);
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+    }
+    100% { 
+        opacity: 1; 
+        letter-spacing: 0px; 
+        transform: translate(-50%, -50%) scale(1.05);
+        text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5);
+    }
+}
+
+/* --- FIX: STACKING THE STAGE AND THE FORM --- */
+#animation-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20; /* Sits above the form during the intro */
+    pointer-events: none; /* Allows you to click the form later */
+}
+
+.auth-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Sits under the animation until revealed */
+}
+
+/* --- FIX: THE HIDE & REVEAL LOGIC --- */
+.hidden-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevents clicking invisible form */
+}
+
+.reveal-auth {
+    visibility: visible;
+    pointer-events: auto;
+    animation: formEntrance 1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes formEntrance {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(40px); 
+        filter: blur(15px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+        filter: blur(0px); 
+    }
+}
+
+
+
+/* --- THE YALI SEASHORE THEME --- */
+#futuristic-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    /* Use a high-quality seashore mansion image */
+    background: linear-gradient(rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.7)), 
+                url('https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070') center/cover no-repeat;
+    z-index: 0;
+    transition: all 1.2s ease-in-out;
+}
+
+/* THE MASSIVE GHOST NEON TEXT */
+.neon-ghost {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18rem; /* Massive size */
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(59, 130, 246, 0.1); /* Thin neon outline */
+    z-index: 1; /* Behind form, above background */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+    letter-spacing: -10px;
+    /* Neon Glow Effect */
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+}
+
+.auth-container {
+    background: transparent !important; /* Kills the white background */
+    z-index: 10;
+}
+
+.glass-form {
+    background: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- THE ELITE PROPERTY GRID --- */
+.trending-section {
+    padding: 80px 5%;
+    background: #020617;
+    position: relative;
+    z-index: 10;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.section-header h2 span {
+    color: #d4af37; /* Royal Gold */
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.property-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.property-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.img-container {
+    height: 280px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease;
+}
+
+.property-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+}
+
+.card-details {
+    padding: 25px;
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.tagline {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #d4af37;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-details h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-details p {
+    display: flex;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.btn-outline-sm {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline-sm:hover {
+    background: #d4af37;
+    color: black;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+
+/* Layout Fixes */
+.home-body {
+    background: #020617;
+    color: white;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.hero-container {
+    height: 80vh; /* Gives the hero space so it doesn't overlap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(2,6,23,0.7), rgba(2,6,23,0.7)), url('assets/images/futuristic-home.jpg') center/cover;
+}
+
+/* Image Handling */
+.img-container {
+    width: 100%;
+    height: 220px; /* Fixed height for uniformity */
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This prevents the 'squished' look */
+}
+
+/* Property Grid */
+.trending-section {
+    padding: 60px 5%;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.price {
+    color: #d4af37; /* Royal Gold */
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
